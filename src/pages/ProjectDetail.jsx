@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import TechIcon from '../components/TechIcon';
 import ProjectMockup from '../components/ProjectMockup';
 import { projects } from '../data/projects';
 
-export default function ProjectDetail({ setPage, selectedProjectIndex }) {
+export default function ProjectDetail({ selectedProjectIndex }) {
+  const navigate = useNavigate();
   const project = projects[selectedProjectIndex] || projects[0];
 
   return (
@@ -12,7 +14,7 @@ export default function ProjectDetail({ setPage, selectedProjectIndex }) {
       {/* Back Button */}
       <div>
         <button 
-          onClick={() => setPage('projects')}
+          onClick={() => navigate('/projects')}
           className="bg-[#161920] border border-[#222731] text-zinc-300 hover:text-white hover:border-zinc-700 px-5 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 hover:scale-105 active:scale-95 transition-all duration-200 shadow-md"
         >
           <span>&larr;</span> Back

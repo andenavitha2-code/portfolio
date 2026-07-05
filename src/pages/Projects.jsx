@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import TechIcon from '../components/TechIcon';
 import ProjectMockup from '../components/ProjectMockup';
 import { projects } from '../data/projects';
 
-export default function Projects({ setPage, setSelectedProjectIndex }) {
+export default function Projects({ setSelectedProjectIndex }) {
+  const navigate = useNavigate();
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-8 space-y-8 animate-fade-in">
       
@@ -21,7 +23,7 @@ export default function Projects({ setPage, setSelectedProjectIndex }) {
             key={project.id}
             onClick={() => {
               setSelectedProjectIndex(idx);
-              setPage('project-detail');
+              navigate('/project-detail');
             }}
             className="bg-[#161920] border border-[#222731] rounded-2xl overflow-hidden hover:border-[#ccff00]/50 hover:shadow-[0_10px_25px_-5px_rgba(204,255,0,0.05)] cursor-pointer group transition-all duration-300 flex flex-col"
           >

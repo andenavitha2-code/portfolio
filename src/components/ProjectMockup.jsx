@@ -22,6 +22,6 @@ export default function ProjectMockup({
     return (
         <img src={images[type]}
         alt={type}
-        className={'${className} w-full h-full object-cover rounded-xl'} />
+        className={`${className} w-full h-full object-cover rounded-xl`} />
     );
 }

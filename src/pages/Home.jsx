@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import TechIcon from '../components/TechIcon';
 import ProjectMockup from '../components/ProjectMockup';
 import { projects } from '../data/projects';
 import herobackground from "../assets/herobackground.png";
 
 export default function Home({ setPage, setSelectedProjectIndex }) {
+  const navigate = useNavigate();
   // Only display the first 3 projects for the "Recent Projects" section
   const recentProjects = projects.slice(0, 3);
 
@@ -20,7 +22,7 @@ export default function Home({ setPage, setSelectedProjectIndex }) {
             <img 
             src={herobackground}
             alt="Hero Background"
-            className="w-full h-full object-cover opacity-30" />
+            className="w-full h-full object-cover opacity-90" />
         
 
           {/* Social connections */}
@@ -50,7 +52,7 @@ export default function Home({ setPage, setSelectedProjectIndex }) {
             </p>
             <div className="w-full flex justify-end">
               <button 
-                onClick={() => setPage('about')}
+                onClick={() => navigate('/about')}
                 className="bg-[#0d0f12] text-[#ccff00] text-xs font-bold px-6 py-3 rounded-xl uppercase tracking-wider hover:bg-zinc-800 hover:scale-105 active:scale-95 transition-all duration-200 shadow-md"
               >
                 More...
@@ -67,7 +69,7 @@ export default function Home({ setPage, setSelectedProjectIndex }) {
             Recent Projects
           </h2>
           <button 
-            onClick={() => setPage('projects')}
+            onClick={() => navigate('/projects')}
             className="flex items-center gap-2 text-zinc-400 hover:text-[#ccff00] text-sm font-semibold group transition-colors duration-200"
           >
             See all 
@@ -82,7 +84,7 @@ export default function Home({ setPage, setSelectedProjectIndex }) {
               key={project.id}
               onClick={() => {
                 setSelectedProjectIndex(idx);
-                setPage('project-detail');
+                navigate('/project-detail');
               }}
               className="bg-[#161920] border border-[#222731] rounded-2xl overflow-hidden hover:border-[#ccff00]/50 hover:shadow-[0_10px_25px_-5px_rgba(204,255,0,0.05)] cursor-pointer group transition-all duration-300 flex flex-col"
             >
@@ -153,7 +155,7 @@ export default function Home({ setPage, setSelectedProjectIndex }) {
 
               {/* Action Button */}
               <button 
-                onClick={() => setPage('contact')}
+                onClick={() => navigate('/contact')}
                 className="bg-black text-[#ccff00] hover:bg-zinc-900 font-bold px-8 py-3.5 rounded-full uppercase tracking-wider text-sm flex items-center gap-2 hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl"
               >
                 Contact Me

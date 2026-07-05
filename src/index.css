@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@theme {
+  --font-display: "Anton", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --color-neon-lime: #ccff00;
+  --color-dark-bg: #0d0f12;
+  --color-card-bg: #161920;
+  --color-card-border: #222731;
+}
+@layer base {
+  body {
+    background-color: var(--color-dark-bg);
+    color: #f3f4f6;
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+/* Custom CSS Utilities */
+.text-outline {
+  -webkit-text-stroke: 1px rgba(204, 255, 0, 0.05);
+  color: transparent;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+.text-outline-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  color: transparent;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+.text-outline-green {
+  -webkit-text-stroke: 2px #ccff00;
+  color: transparent;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0f12;
+}
+::-webkit-scrollbar-thumb {
+  background: #222731;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccff00;
+}
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
